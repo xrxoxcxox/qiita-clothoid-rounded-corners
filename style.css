@@ -4,3 +4,19 @@
   margin: 0;
   padding: 0;
 }
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  height: 100%;
+  padding: 200px;
+}
+
+.svgRoot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #55c500;
+}
