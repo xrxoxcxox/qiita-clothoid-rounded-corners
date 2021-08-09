@@ -17,8 +17,13 @@
           .svgRoot {
             position: relative;
           }
-          .svgRoot svg {
-            display: block;
+          .edge {
+            height: 100px;
+            width: calc(100% - 200px);
+          }
+          .center {
+            height: calc(100% - 200px);
+            width: 100%;
           }
         </style>
         <defs>
@@ -32,20 +37,13 @@
           </symbol>
         </defs>
 
-        <!-- top left corner: -->
+        <!-- top left corner -->
         <use xlink:href="#corner" width="100px" height="100px" />
 
-        <!-- bottom left corner: -->
-        <use
-          xlink:href="#corner"
-          transform="scale(1, -1)"
-          width="100px"
-          height="100px"
-          x="0"
-          y="-100%"
-        />
+        <!-- top edge -->
+        <rect x="100" y="0" width="100%" height="100%" class="edge"/>
 
-        <!-- top right corner: -->
+        <!-- top right corner -->
         <use
           xlink:href="#corner"
           transform="scale(-1, 1)"
@@ -55,7 +53,23 @@
           y="0"
         />
 
-        <!-- bottom right corner: -->
+        <!-- center -->
+        <rect x="0" y="100" width="100%" height="100%" class="center"/>
+
+        <!-- bottom left corner -->
+        <use
+          xlink:href="#corner"
+          transform="scale(1, -1)"
+          width="100px"
+          height="100px"
+          x="0"
+          y="-100%"
+        />
+
+        <!-- bottom edge -->
+        <rect transform="scale(1, -1)" x="100" y="-100%" width="100%" height="100%" class="edge"/>
+
+        <!-- bottom right corner -->
         <use
           xlink:href="#corner"
           transform="scale(-1, -1)"
@@ -64,75 +78,6 @@
           x="-100%"
           y="-100%"
         />
-
-        <!-- top edge: -->
-        <foreignObject x="0" y="0" width="100%" height="100px">
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            style="
-              position: absolute;
-              top: 0;
-              left: 100px;
-              width: calc(100% - 200px);
-              height: 100px;
-            "
-          >
-            <svg
-              width="100%"
-              height="100px"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <rect class="slice" x="0" y="0" width="100%" height="100" />
-            </svg>
-          </div>
-        </foreignObject>
-
-        <!-- bottom edge: -->
-        <foreignObject x="0" y="-100%" width="100%" height="100px" transform="scale(1, -1)">
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 100px;
-              width: calc(100% - 200px);
-              height: 100px;
-            "
-          >
-            <svg
-              width="100%"
-              height="100px"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <rect class="slice" x="0" y="0" width="100%" height="100" />
-            </svg>
-          </div>
-        </foreignObject>
-
-        <foreignObject x="0" y="0" width="100%" height="100%">
-          <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            style="
-              position: absolute;
-              top: 100px;
-              bottom: 100px;
-              left: 0;
-              width: 100%;
-              height: calc(100% - 200px);
-            "
-          >
-            <svg
-              width="100%"
-              height="100%"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <rect class="slice" x="0" y="0" width="100%" height="100%" />
-            </svg>
-          </div>
-        </foreignObject>
       </svg>
     </div>
   </body>
